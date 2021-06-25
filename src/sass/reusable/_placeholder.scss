@@ -1,0 +1,37 @@
+@use 'functions' as *;
+@use 'mixins' as *;
+@use '../abstract' as *;
+
+%flex {
+    display: flex;
+}
+
+%grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: rem(534);
+
+    @include responsive (tab) {
+        grid-template-rows: calc(359px + (534 - 359) * ((100vw - 375px) / (1024 - 375)));
+    }
+}
+
+%listreset {
+    list-style: none;
+}
+
+%linkreset {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+%buttonreset {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:focus-visible {
+        outline: 2px dashed $green;
+    }
+}

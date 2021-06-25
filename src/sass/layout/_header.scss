@@ -1,0 +1,45 @@
+@use '../reusable' as *;
+@use '../abstract' as *;
+
+.header {
+    width: 100%;
+    height: auto;
+
+    &__wrapper {
+        max-width: rem(1180);
+        width: 89.9vw;
+        height: rem(70);
+        margin: 0 auto;
+        @extend %flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a{
+            @extend %buttonreset;
+        }
+
+        &-logo {
+            width: rem(142);
+        }
+    }
+}
+
+.header__wrapper-cta  {
+    &-addRecipe, &-theme {
+        @extend %buttonreset;
+        @include trans(color);
+        font-size: rem(17);
+        &:hover {
+            color: $green;
+        }
+    }
+
+    &-addRecipe {
+        margin-right: rem(20);
+        font-size: rem(18);
+    }
+    
+    .far {
+        font-size: rem(22);
+    }
+}

@@ -4,10 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My App</title>
     <script src="../src/app.js" defer></script>
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>My App</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <header class="header">
+        <div class="header__wrapper">
+            <a href="#">
+                <img src="../src/images/recify-main-dark-1.png" alt="main-logo" class="header__wrapper-logo">
+            </a>
+            
+            <div class="header__wrapper-cta">
+                <button class="header__wrapper-cta-addRecipe">
+                    <i class="far fa-edit"></i>
+                    <span>Add Recipe</span>
+                </button>
+            
+                <button class="header__wrapper-cta-theme">
+                    <i class="far fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 </body>
 </html>

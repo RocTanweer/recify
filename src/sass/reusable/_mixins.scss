@@ -1,0 +1,37 @@
+@use 'functions' as func;
+@use 'sass:map';
+
+// for responsiveness
+$breakPoints : (
+    'xsmall' : func.rem(320),
+    'small' : func.rem(375),
+    'large' : func.rem(807), 
+    'tab' : func.rem(1024),
+    'desktop' : func.rem(1440),
+);
+
+@mixin responsive($size) {
+    $breakPoint : map.get($breakPoints, $size);
+    @media screen and (max-width : $breakPoint) {
+        @content    
+    }
+};
+
+// for hoverable elements on touch
+$choices : (
+    'hover' : hover,
+    'notHover' : none,
+);
+
+@mixin hoverable ($decision) {
+    $choice : map.get($choices, $decision);
+
+    @media (hover : $choice) {
+        @content
+    }
+};
+
+// mixin for transition
+@mixin trans($prop) {
+    transition: $prop 300ms ease-in-out;
+}

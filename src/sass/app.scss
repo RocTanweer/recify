@@ -1,11 +1,1 @@
-$primary-color : slateblue;
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0; 
-}
-
-body {
-    background-color: $primary-color;
-}
+@use './layout' as *;

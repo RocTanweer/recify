@@ -16,5 +16,9 @@
     "@babel/runtime-corejs2": "^7.14.6",
     "parcel-bundler": "^1.12.5",
     "sass": "^1.35.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "al": "0.0.3"
   }
 }
