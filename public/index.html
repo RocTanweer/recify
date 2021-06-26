@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,24 +10,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <title>My App</title>
 </head>
+
 <body>
     <header class="header">
         <div class="header__wrapper">
-            <a href="#">
-                <img src="../src/images/recify-main-dark-1.png" alt="main-logo" class="header__wrapper-logo">
+            <a href="#" class="header__wrapper-logo">
+                <img src="../src/images/recify-main-dark-1.png" alt="main-logo">
             </a>
-            
+
             <div class="header__wrapper-cta">
                 <button class="header__wrapper-cta-addRecipe">
                     <i class="far fa-edit"></i>
                     <span>Add Recipe</span>
                 </button>
-            
+
                 <button class="header__wrapper-cta-theme">
                     <i class="far fa-moon"></i>
                 </button>
             </div>
         </div>
     </header>
+
+    <section class="top">
+        <div class="top__wrapper">
+            <form class="top__wrapper-form">
+                <button type="submit" name="submit" class="submit" tabindex="-1">
+                    <i class="fas fa-search"></i>
+                </button>
+
+                <input type="text" class="input" name="search-field" placeholder="Search over 1,000,000 recipes" autocomplete="off">
+            </form>
+
+            <div class="top__wrapper-bookmarks">
+                <button aria-expanded="false" type="button" name="dropDown-button" class="top__wrapper-bookmarks-btn">
+                    Bookmark Recipes
+                </button>
+
+                <ul class="top__wrapper-bookmarks-items">
+                    <li>item 1</li>
+                    <li>item 2</li>
+                    <li>item 3</li>
+                    <li>item 4</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>

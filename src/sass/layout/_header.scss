@@ -4,22 +4,30 @@
 .header {
     width: 100%;
     height: auto;
+    background-color: $white;
+    margin-bottom: rem(27);
 
     &__wrapper {
-        max-width: rem(1180);
-        width: 89.9vw;
-        height: rem(70);
-        margin: 0 auto;
         @extend %flex;
         justify-content: space-between;
         align-items: center;
-
-        a{
-            @extend %buttonreset;
-        }
+        max-width: rem(1180);
+        width: 89.9vw;
+        height: rem(95);
+        margin: 0 auto;
 
         &-logo {
-            width: rem(142);
+            @extend %buttonreset;
+            width: rem(160);
+
+            @include responsive(large) {
+                width: fluid(91, 160);
+            }
+
+            img {
+                max-width: rem(160);
+                width: 100%;
+            }
         }
     }
 }
@@ -28,7 +36,8 @@
     &-addRecipe, &-theme {
         @extend %buttonreset;
         @include trans(color);
-        font-size: rem(17);
+        color: $orangeBlack;
+        
         &:hover {
             color: $green;
         }
@@ -36,10 +45,20 @@
 
     &-addRecipe {
         margin-right: rem(20);
-        font-size: rem(18);
+        font-size: rem(14);
+        font-weight: 600;
+
+        @include responsive(large) {
+            font-size: fluid(12, 14);
+            margin-right: rem(5);
+        }
     }
     
     .far {
-        font-size: rem(22);
+        font-size: rem(20);
+
+        @include responsive(large) {
+            font-size: fluid(14, 20);
+        }
     }
 }

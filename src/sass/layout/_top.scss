@@ -1,0 +1,107 @@
+@use '../reusable' as *;
+@use '../abstract' as *;
+
+.top {
+    width: 100%;
+    height: auto;
+
+    &__wrapper {
+        @extend %flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: rem(1180);
+        width: 89.9vw;
+        height: rem(70);
+        margin: 0 auto;
+
+        @include responsive(large) {
+            flex-flow: column;
+            align-items: flex-start;
+            height: auto;
+        }
+
+        &-form {
+            @extend %flex;
+            justify-content: space-between;
+            width: rem(541);
+            height: rem(50);
+            background-color: $white;
+            padding: 0 rem(10);
+            border-radius: rem(9);
+        }
+    }
+}
+
+.top__wrapper-form  {
+    @include responsive(tab) {
+        width: rem(463);
+    }
+
+    @include responsive(large) {
+        width: 100%;
+        margin-bottom: rem(20);
+    }
+
+    .submit {
+        @extend %buttonreset;
+        font-size: rem(16);
+        color: $orangeBlack;
+    }
+
+    .input{
+        @extend %inputreset;
+        font-size: inherit;
+        width: 95%;
+        height: 100%;
+        background-color: $white;
+        color: $orangeBlack;
+
+        @include responsive(large) {
+            width: 92%;
+        }
+    }
+}
+
+.top__wrapper-bookmarks {
+    position: relative;
+
+    &-btn {
+        @extend %buttonreset;
+        font-size: rem(16);
+        padding: rem(13) rem(30);
+        background-color: $whiteOrange;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: rem(9);
+
+        @include responsive(large) {
+            font-size: fluid(14, 16);
+            padding: rem(13) fluid(19, 30); 
+        }
+
+        &:hover{
+            background-color: $lightOrange;
+            @include trans(background-color);
+        }
+        // from bootstrap
+        &::after {
+            display: inline-block;
+            margin-left: .255em;
+            vertical-align: .255em;
+            content: "";
+            border-top: .3em solid;
+            border-right: .3em solid transparent;
+            border-bottom: 0;
+            border-left: .3em solid transparent;
+        }
+    }
+
+    &-items {
+        @extend %listreset;
+        position: absolute;
+        display: none;
+        width: 100%;
+        background-color: $white;
+        padding: rem(5);
+    }
+}

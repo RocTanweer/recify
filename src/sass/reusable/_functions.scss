@@ -4,3 +4,8 @@
 @function rem($px) {
     @return math.div($px, 16) * 1rem;
 }
+
+// function for fluid typography
+@function fluid($x, $y) {
+    @return calc((#{$x} * 1px) + (#{$y - $x}) * ((100vw - 320px) / (807 - 320)))
+}
