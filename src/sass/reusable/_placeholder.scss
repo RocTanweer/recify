@@ -8,11 +8,11 @@
 
 %grid {
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: rem(534);
+    gap: rem(65);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 
-    @include responsive (tab) {
-        grid-template-rows: calc(359px + (534 - 359) * ((100vw - 375px) / (1024 - 375)));
+    @include responsive(large) {
+        grid-template-columns: repeat(auto-fit, minmax(fluid(287.67, 350), 1fr));
     }
 }
 
