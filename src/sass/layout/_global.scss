@@ -1,7 +1,9 @@
 @use '../abstract' as *;
+@use '../reusable' as *;
 
 html {
     font-size: 100%;
+    list-style: 1.5;
 }
 
 *,*::after,*::before{
@@ -16,4 +18,34 @@ body {
     font-family: $primaryFont;
     background-color: $lightGray;
     color: $orangeBlack;
+}
+
+h1, h2 {
+    color: $orangeBlack;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: rem(48);
+
+    @include responsive(large) {
+        font-size: fluid(28, 48);
+    }
+}
+
+h2 {
+    font-size: rem(24);
+
+    @include responsive(large) {
+        font-size: fluid(16, 24);
+    }
+}
+
+p{
+    font-size: rem(16);
+    color: $orangeBlack;
+
+    @include responsive(large) {
+        font-size: fluid(14, 16);
+    }
 }
