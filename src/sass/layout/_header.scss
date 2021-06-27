@@ -15,9 +15,11 @@
         width: 89.9vw;
         height: rem(95);
         margin: 0 auto;
+        position: relative;
+        z-index: 1;
 
         &-logo {
-            @extend %buttonreset;
+            @extend %linkreset;
             width: rem(160);
 
             @include responsive(large) {
@@ -41,6 +43,10 @@
         &:hover {
             color: $green;
         }
+
+        &:active{
+            color: $orangeBlack;
+        }
     }
 
     &-addRecipe {
@@ -61,4 +67,16 @@
             font-size: fluid(14, 20);
         }
     }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.295);
+    z-index: 2;
+    display: none;
 }

@@ -20,9 +20,20 @@
     list-style: none;
 }
 
+%focus {
+    &:focus:not(:focus-visible){
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: 2px dashed $green;
+    }
+}
+
 %linkreset {
     text-decoration: none;
     color: #ffffff;
+    @extend %focus;
 }
 
 %buttonreset {
@@ -30,10 +41,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-
-    &:focus-visible {
-        outline: 2px dashed $green;
-    }
+    @extend %focus;
 }
 
 %inputreset {

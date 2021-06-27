@@ -84,6 +84,10 @@
             background-color: $lightOrange;
             @include trans(background-color);
         }
+
+        &:active{
+            background-color: $whiteOrange;
+        }
         // from bootstrap
         &::after {
             display: inline-block;

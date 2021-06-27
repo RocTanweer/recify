@@ -1,0 +1,103 @@
+@use '../reusable' as *;
+@use '../abstract' as *;
+
+.addRecipe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 49%;
+    height: 100vh;
+    z-index: 3;
+    background-color: $lightGray;
+    transform: translateX(0%);
+    overflow: hidden;
+    display: none;
+    @include trans(transform);
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        box-sizing: content-box;
+        padding-left: rem(17);
+    }
+
+    &__header {
+        width: 100%;
+        height: auto;
+        margin-bottom: rem(27);
+
+        &-wrapper {
+            @extend %flex;
+            justify-content: flex-end;
+            align-items: center;
+            max-width: rem(575.6);
+            width: 40vw;
+            margin: 0 auto;
+            height: rem(95);
+        }
+    }
+
+    &__backBtn {
+        font-size: rem(25);
+        @extend %buttonreset;
+        @include trans(color);
+
+        &:hover {
+            color: $green;
+        }
+    }
+
+    &__form {
+        max-width: rem(575.6);
+        width: 40vw;
+        margin: 0 auto;
+        text-align: center;
+
+        &-data, &-ingridients {
+            border: 0;
+            margin:0 rem(17) rem(25) 0;
+        }
+
+        .legend {
+            font-size: rem(31);
+            font-weight: 700;
+            
+            margin-bottom: rem(20);
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            height: rem(50);
+            background-color: $white;
+            border-radius: rem(9);
+            padding: 0 rem(10);
+            font-size: inherit;
+            color: $orangeBlack;
+            margin-bottom: rem(10);
+            @extend %inputreset;
+            @extend %focus;
+        }
+    }
+
+    &__submitBtn {
+        @extend %buttonreset;
+        font-size: 1.25rem;
+        padding: 0.8125rem 2.875rem;
+        background-color: $whiteOrange;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 0.5625rem;
+        margin-bottom: rem(20);
+
+        &:hover{
+            background-color: $lightOrange;
+            @include trans(background-color);
+        }
+
+        &:active{
+            background-color: $whiteOrange;
+        }
+    }
+}
