@@ -26,10 +26,10 @@ h1, h2 {
 }
 
 h1 {
-    font-size: rem(48);
+    font-size: rem(27);
 
     @include responsive(large) {
-        font-size: fluid(28, 48);
+        font-size: fluid(19, 27);
     }
 }
 

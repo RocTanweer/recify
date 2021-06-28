@@ -4,7 +4,7 @@
 .top {
     width: 100%;
     height: auto;
-    margin-bottom: rem(57);
+    margin-bottom: rem(41);
 
     &__wrapper {
         @extend %flex;
@@ -29,6 +29,30 @@
             background-color: $white;
             padding: 0 rem(10);
             border-radius: rem(9);
+            // display: none;
+        }
+    }
+
+    &__backBtn {
+        @extend %buttonreset;
+        @include trans(color);
+        font-size: rem(16);
+        background-color: $white;
+        color: $orangeBlack;
+        display: none;
+
+        @include responsive(large) {
+            font-size: fluid(14, 16);
+            padding: rem(13) fluid(19, 30); 
+            margin-bottom: rem(10);
+        }
+
+        &:hover {
+            color: $green;
+        }
+
+        &:active{
+            color: $orangeBlack;
         }
     }
 }
@@ -46,7 +70,12 @@
     .submit {
         @extend %buttonreset;
         font-size: rem(16);
+        padding: 0;
         color: $orangeBlack;
+
+        @include responsive(large) {
+            font-size: fluid(14, 16);
+        }
     }
 
     .input{
@@ -54,11 +83,12 @@
         font-size: inherit;
         width: 95%;
         height: 100%;
-        background-color: $white;
+        background-color: $white;   
         color: $orangeBlack;
 
         @include responsive(large) {
             width: 92%;
+            font-size: fluid(14, 16);
         }
     }
 }
@@ -68,12 +98,11 @@
 
     &-btn {
         @extend %buttonreset;
+        @include trans(color);
         font-size: rem(16);
-        padding: rem(13) rem(30);
-        background-color: $whiteOrange;
+        background-color: $white;
+        color: $orangeBlack;
         font-weight: 500;
-        letter-spacing: 1px;
-        border-radius: rem(9);
 
         @include responsive(large) {
             font-size: fluid(14, 16);
@@ -81,13 +110,14 @@
         }
 
         &:hover{
-            background-color: $lightOrange;
-            @include trans(background-color);
+            color: $green;
         }
 
-        &:active{
-            background-color: $whiteOrange;
+        &:active {
+            color: $orangeBlack;
         }
+
+        
         // from bootstrap
         &::after {
             display: inline-block;
@@ -110,3 +140,6 @@
         padding: rem(5);
     }
 }
+
+// publisher, ingridients,source url, image url, title, servings, cooking time, id 
+// ingridients, source url, image url, title, servings, cookng time

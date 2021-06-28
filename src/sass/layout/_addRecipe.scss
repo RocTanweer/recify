@@ -13,6 +13,10 @@
     overflow: hidden;
     display: none;
     @include trans(transform);
+    
+    @include responsive(large) {
+        width: 100%;
+    } 
 
     &__wrapper {
         width: 100%;
@@ -20,6 +24,10 @@
         overflow-y: scroll;
         box-sizing: content-box;
         padding-left: rem(17);
+
+        @include responsive(large) {
+            padding-left: 0;
+        }
     }
 
     &__header {
@@ -35,16 +43,26 @@
             width: 40vw;
             margin: 0 auto;
             height: rem(95);
+
+            @include responsive(large) {
+                width: 89.9vw;
+                padding: 0 rem(17);
+            }
         }
     }
 
     &__backBtn {
         font-size: rem(25);
+        color: $orangeBlack;
         @extend %buttonreset;
         @include trans(color);
 
         &:hover {
             color: $green;
+        }
+
+        &:active {
+            color: $orangeBlack;
         }
     }
 
@@ -54,16 +72,27 @@
         margin: 0 auto;
         text-align: center;
 
+        @include responsive(large) {
+            width: 89.9vw;
+        }
+
         &-data, &-ingridients {
             border: 0;
             margin:0 rem(17) rem(25) 0;
+
+            @include responsive(large) {
+                margin: 0 0 rem(25) 0;
+            }
         }
 
         .legend {
             font-size: rem(31);
             font-weight: 700;
-            
             margin-bottom: rem(20);
+
+            @include responsive(large) {
+                font-size: fluid(23, 31);
+            }
         }
 
         input {
@@ -78,22 +107,28 @@
             margin-bottom: rem(10);
             @extend %inputreset;
             @extend %focus;
+
+            @include responsive(large) {
+                font-size: fluid(14, 16)
+            }
         }
     }
 
     &__submitBtn {
         @extend %buttonreset;
+        @include trans(background-color);
         font-size: 1.25rem;
-        padding: 0.8125rem 2.875rem;
-        background-color: $whiteOrange;
+        background-color: $lightOrange;
+        border: 2px solid $lightOrange;
         font-weight: 500;
-        letter-spacing: 1px;
-        border-radius: 0.5625rem;
         margin-bottom: rem(20);
 
+        @include responsive(large) {
+            font-size: fluid(14, 16);
+        }
+
         &:hover{
-            background-color: $lightOrange;
-            @include trans(background-color);
+            background-color: $white;
         }
 
         &:active{

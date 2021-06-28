@@ -10,6 +10,7 @@
     display: grid;
     gap: rem(65);
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-rows: auto;
 
     @include responsive(large) {
         grid-template-columns: repeat(auto-fit, minmax(fluid(287.67, 350), 1fr));
@@ -41,6 +42,9 @@
     border: none;
     outline: none;
     cursor: pointer;
+    padding: rem(13) rem(30);
+    letter-spacing: 1px;
+    border-radius: rem(9);
     @extend %focus;
 }
 

@@ -38,6 +38,7 @@
     &-addRecipe, &-theme {
         @extend %buttonreset;
         @include trans(color);
+        padding: 0;
         color: $orangeBlack;
         
         &:hover {

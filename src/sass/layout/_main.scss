@@ -23,6 +23,103 @@
             width: fluid(287.67, 350);
         }
     }
+
+    &__imageContainer {
+        text-align: center;
+        width: 100%;
+    }
+
+    &__content {
+        width: 100%;
+        height: auto;
+        
+        @include responsive(large) {
+            padding-bottom: fluid(10, 20);
+        }
+    }
+}
+
+.main__imageContainer {
+    &-heading {
+        margin-bottom: rem(20);
+    }
+
+    &-image {
+        width: rem(500);
+        height: rem(333.4);
+        margin: 0 auto;
+        border-radius: rem(9);
+        box-shadow: 0px 1px 31px -6px #477229;
+
+        @include responsive(tab) {
+            width: 425px;
+            height: 283.34px;
+        }
+
+        @include responsive(large) {
+            width: fluid(287.67, 425);
+            height: fluid(191.78, 283.34);
+        }
+
+        img {
+            max-width: rem(500);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: rem(9);
+        }
+    }
+}
+
+.main__content {
+    &-heading {
+        font-size: rem(23);
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: rem(52);
+
+        @include responsive(tab) {
+            font-size: fluid(17, 23);
+            margin-bottom: fluid(38, 52);
+        }
+    }
+
+    &-ingredient {
+        @extend %listreset;
+        @extend %grid;
+        grid-template-columns: 1fr 1fr;
+        gap: rem(31);
+        margin-bottom: rem(52);
+
+        @include responsive(large) {
+            grid-template-columns: 1fr;
+            gap: fluid(10, 31);
+        }
+
+        .item {
+            justify-self: center;
+            font-size: rem(16);
+            color: inherit;
+        }
+    }
+
+    &-moreInfo {
+        @extend %buttonreset;
+        @extend %focus;
+        @include trans(background-color);
+        display: block;
+        margin: 0 auto;
+        background-color: $lightOrange;
+        border: 2px solid $lightOrange;
+
+        &:hover{
+            background-color: $white;
+        }
+
+        &:active{
+            background-color: $lightOrange;
+        }
+    }
 }
 
 .main__article {
@@ -57,6 +154,7 @@
     &-title {
         text-align: start;
         padding: 0 rem(10);
+        text-overflow: ellipsis;
     }
 
     &-link {
@@ -96,11 +194,9 @@
 
     &-source {
         font-size: rem(14);
-        font-weight: 600;
     }
     
     &-time {
-        font-weight: 700;
         font-size: rem(12);
     }
 }

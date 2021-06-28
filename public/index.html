@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../src/app.js" defer></script>
     <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"> -->
     <title>My App</title>
 </head>
 
@@ -87,6 +87,13 @@
 
     <section class="top">
         <div class="top__wrapper">
+            <button class="top__backBtn">
+                <span>
+                    <i class="fas fa-arrow-left"></i>
+                    Back
+                </span>
+            </button>
+
             <form class="top__wrapper-form">
                 <button type="submit" name="submit" class="submit" tabindex="-1">
                     <i class="fas fa-search"></i>
@@ -112,7 +119,6 @@
 
     <main class="main">
         <div class="main__wrapper">
-            <!-- publisher, ingridients,source url, image url, title, servings, cooking time, id  -->
 
             <article class="main__article">
                 <div class="main__article-wrapper">
@@ -246,6 +252,55 @@
                     </div>
                 </div>
             </article>
+        
+        <!-- <div class="main__imageContainer">
+            <h1 class="main__imageContainer-heading">
+                Mexican “Flatbread” Pizza
+            </h1>
+
+            <div class="main__imageContainer-image">
+                <img src="../src/images/FlatBread21of1a180.jpg" alt="main-image">
+            </div>
+
+        </div>
+
+        <div class="main__content">
+            <h2 class="main__content-heading">
+                Ingredients
+            </h2>
+
+            <ul class="main__content-ingredient">
+                <li class="item">
+                    Item 1
+                </li>
+                <li class="item">
+                    Item 2
+                </li>
+                <li class="item">
+                    Item 3
+                </li>
+                <li class="item">
+                    Item 4
+                </li>
+                <li class="item">
+                    Item 5
+                </li>
+                <li class="item">
+                    Item 6
+                </li>
+                <li class="item">
+                    Item 7
+                </li>
+                <li class="item">
+                    Item 18
+                </li>
+            </ul>
+
+            <button class="main__content-moreInfo">
+                More Info
+            </button>
+        </div> -->
+    
         </div>
     </main>
 </body>
