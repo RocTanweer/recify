@@ -32,6 +32,7 @@
     &__content {
         width: 100%;
         height: auto;
+        text-align: center;
         
         @include responsive(large) {
             padding-bottom: fluid(10, 20);
@@ -45,28 +46,91 @@
     }
 
     &-image {
-        width: rem(500);
+        width: calc(425px + (75) * ((100vw - 1024px) / (1440 - 1024)));
         height: rem(333.4);
         margin: 0 auto;
         border-radius: rem(9);
         box-shadow: 0px 1px 31px -6px #477229;
-
-        @include responsive(tab) {
-            width: 425px;
-            height: 283.34px;
-        }
+        margin-bottom: rem(16);
 
         @include responsive(large) {
-            width: fluid(287.67, 425);
-            height: fluid(191.78, 283.34);
+            width: fluid(287.67, 725);
+            height: fluid(191.78, 483.34);
         }
 
         img {
-            max-width: rem(500);
+            max-width: rem(725);
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: rem(9);
+        }
+    }
+
+    &-bottom {
+        @extend %flex;
+        justify-content: space-between;
+        width: calc(425px + (75) * ((100vw - 1024px) / (1440 - 1024)));
+        margin: 0 auto;
+
+        @include responsive(large) {
+            width: fluid(287.67, 725);
+        }
+    }
+
+    &-sideDetails {
+        @extend %listreset;
+        @extend %flex;  
+        justify-content: flex-start;
+    }
+
+    &-sideDetail {
+        &:nth-child(1){
+            margin-right: rem(23);
+
+            @include responsive(large) {
+                margin-right: fluid(9, 23);
+            }
+        }
+
+        &:nth-child(2) {
+            margin-right: rem(7);
+        }
+
+        .fa-clock, .fa-user-friends, .fa-user{
+            font-size: rem(20);
+
+            @include responsive(large) {
+                font-size: fluid(16, 20);
+            }
+        }
+
+        .time, .servings {
+            font-size: rem(16);
+
+            @include responsive(large) {
+                font-size: fluid(12, 16);
+            }
+        }
+
+        .increaseServings, .decreaseServings {
+            @extend %buttonreset;
+            padding: 0;
+            color: $lightOrange;
+            margin-right: 4px;
+        }
+
+        .bookmarkBtn {
+            @extend %buttonreset;
+            padding: 0;
+
+            .fa-bookmark {
+                font-size: rem(25);
+
+                @include responsive(large) {
+                    font-size: fluid(19, 25);
+                }
+            }
         }
     }
 }
@@ -85,32 +149,42 @@
     }
 
     &-ingredient {
-        @extend %listreset;
         @extend %grid;
         grid-template-columns: 1fr 1fr;
         gap: rem(31);
-        margin-bottom: rem(52);
+        margin-bottom: rem(65);
 
         @include responsive(large) {
             grid-template-columns: 1fr;
+            width: fluid(250, 725);
+            margin: 0 auto;
+            margin-bottom: fluid(33, 65);
             gap: fluid(10, 31);
         }
 
         .item {
-            justify-self: center;
+            text-align: left;
             font-size: rem(16);
             color: inherit;
+
+            @include responsive(large) {
+                text-align: left;
+            }
         }
     }
 
     &-moreInfo {
         @extend %buttonreset;
-        @extend %focus;
         @include trans(background-color);
-        display: block;
-        margin: 0 auto;
+        text-decoration: none;
+        color: $orangeBlack;
         background-color: $lightOrange;
         border: 2px solid $lightOrange;
+        font-weight: 600;
+        
+        @include responsive(large) {
+            font-size: fluid(14, 16);
+        }
 
         &:hover{
             background-color: $white;
@@ -119,6 +193,7 @@
         &:active{
             background-color: $lightOrange;
         }
+
     }
 }
 

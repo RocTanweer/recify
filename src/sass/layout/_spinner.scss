@@ -1,0 +1,21 @@
+@use '../reusable' as *;
+
+#spinner {
+  animation: animate 1.5s linear infinite;
+  clip: rect(0, 80px, 80px, 40px); 
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  left: calc(50% - 40px);
+  top: calc(50% - 40px);
+
+  &::after {
+    animation: animate2 1.5s ease-in-out infinite;
+    clip: rect(0, 80px, 80px, 40px);
+    content:'';
+    border-radius: 50%; 
+    height: 80px;
+    width: 80px;
+    position: absolute; 
+  }
+}

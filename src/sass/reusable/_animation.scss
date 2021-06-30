@@ -1,21 +1,24 @@
-@keyframes picFadeIn {
-    0% {
-        opacity: 0.5;
-    }
+@use '../abstract' as *;
 
-    100% {
-        opacity: 1;
-    }
+@keyframes animate {
+  0% { 
+    transform: rotate(0deg)
+  }
+  100% { 
+    transform: rotate(220deg)
+  }
 }
 
-@keyframes picFadeOut {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(0.7);
-    }
+@keyframes animate2 {
+  0% {
+    box-shadow: inset $lightOrange 0 0 0 17px;
+    transform: rotate(-140deg);
+  }
+  50% {
+    box-shadow: inset $lightOrange 0 0 0 2px;
+  }
+  100% {
+    box-shadow: inset $lightOrange 0 0 0 17px;
+    transform: rotate(140deg);
+  }
 }
