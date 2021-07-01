@@ -1,0 +1,52 @@
+@use '../reusable' as *; 
+@use '../abstract' as *; 
+
+.message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: rem(500);
+    height: auto;
+    text-align: center;
+
+    @include responsive(large) {
+        width: fluid(287.67, 500);
+    }
+
+    &__heading {
+        font-size: rem(31);
+        font-weight: 700;
+        color: $green;
+    }
+
+    &__content {
+        font-weight: 600;
+        margin-bottom: rem(20);
+
+        @include responsive(large) {
+            font-size: fluid(13, 16);
+        }
+    }
+
+    &__tryAgain {
+        @extend %buttonreset;
+        @include trans(background-color);
+        background-color: $lightOrange;
+        border: 2px solid $lightOrange;
+        font-weight: 600;
+
+        @include responsive(large) {
+            font-size: fluid(12, 16);
+            padding: fluid(11, 13) fluid(16, 30);
+        }
+
+        &:hover {
+            background-color: $white;
+        }
+
+        &:active{
+            background-color: $lightOrange;
+        }
+    }
+}

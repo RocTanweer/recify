@@ -33,6 +33,7 @@
         width: 100%;
         height: auto;
         text-align: center;
+        padding-bottom: calc(20px + 10 * ((100vw - 807px) / (1440 - 807)));
         
         @include responsive(large) {
             padding-bottom: fluid(10, 20);
