@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "al": "0.0.3"
+    "al": "0.0.3",
+    "d": "^1.0.1"
   }
 }
