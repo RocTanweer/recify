@@ -18,20 +18,6 @@ class RecipeView {
         events.forEach(env => window.addEventListener(env, handler))
     }
 
-    renderError() {
-        this.clear();
-        const markup = `
-           <div class="message">
-                <h2 class="message__heading">Whoops!</h2>
-                <p class="message__content">There seem to be a problem with your network connection</p>
-                <button class="message__tryAgain">
-                     Try Again
-                </button>
-            </div>
-        `
-        this.#parentElement.insertAdjacentHTML('afterbegin', markup)
-    }
-
     renderSpinner() {
         this.clear();
         const markup = `<div id="spinner"></div>`;

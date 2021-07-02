@@ -38,7 +38,7 @@ export const loadSearchResults = async function(query) {
         state.search.query = query;
         state.search.numOfRecipes = data.results;
         let {recipes} = data.data;
-        
+
         recipes = recipes.map(recipe => {
             return {
                 publisher : recipe.publisher,
@@ -48,7 +48,6 @@ export const loadSearchResults = async function(query) {
             }
         })
 
-        console.log(recipes)
         state.search.recipes = recipes;
     }
     catch(err) {

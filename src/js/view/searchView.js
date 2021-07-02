@@ -29,6 +29,20 @@ class SearchView {
         this.#parentElement.insertAdjacentHTML('afterbegin', markup);
     }
 
+    renderError() {
+        this.clear();
+        const markup = `
+           <div class="message">
+                <h2 class="message__heading">Whoops!</h2>
+                <p class="message__content">${ this.#data === undefined ? " There seem to be a problem with your network connection" : this.#data?.length === 0 ? "We could not find any recipe for your query" : "There seem to be a problem with your network connection"}</p>
+                ${this.#data?.length === 0 ? "" : `<button class="message__tryAgain">
+                                                        Try Again
+                                                    </button>`}
+            </div>
+        `
+        this.#parentElement.insertAdjacentHTML('afterbegin', markup)
+    }
+
     #generateMarkup() {
         return `
             ${this.#data.map(rec => this.#generateArticleMarkup(rec)).join('')}

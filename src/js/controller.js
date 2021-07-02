@@ -19,7 +19,7 @@ const controlRecipe = async function () {
     }
     catch (err) {
         console.error(err)
-        RecipeView.renderError();
+        SearchView.renderError();
     }
 }
 
@@ -29,12 +29,12 @@ const controlSearchResults = async function() {
        if (!query) return;
        RecipeView.renderSpinner();
        await Model.loadSearchResults(query);
-       console.log(Model.state.search.recipes)
        SearchView.render(Model.state.search.recipes);
+       if (Model.state.search.recipes.length === 0) throw new Error(`Invalid Input`)
    }
    catch(err) {
        console.error(err)
-       RecipeView.renderError();
+       SearchView.renderError();
    }
 }
 
