@@ -3,12 +3,16 @@ import {getJSON} from './helpers.js'
 
 export const state = {
     recipe:  {},
+    search : {
+        query : '',
+        numOfRecipes : 0,
+        recipes : []
+    }
 }
 
 export const loadRecipe = async function(id) {
    try {
         const data = await getJSON(`${API_URL}${id}`);    
-
         let { recipe } = data.data;  // modifying the data format into camelCase
         recipe = {
            cookingTime: recipe.cooking_time,
@@ -26,4 +30,28 @@ export const loadRecipe = async function(id) {
    catch(err) {
        console.error(err)
    }
+}
+// https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza
+export const loadSearchResults = async function(query) {
+    try{
+        const data = await getJSON(`${API_URL}?search=${query}`);
+        state.search.query = query;
+        state.search.numOfRecipes = data.results;
+        let {recipes} = data.data;
+        
+        recipes = recipes.map(recipe => {
+            return {
+                publisher : recipe.publisher,
+                image : recipe.image_url,
+                title : recipe.title,
+                id : recipe.id
+            }
+        })
+
+        console.log(recipes)
+        state.search.recipes = recipes;
+    }
+    catch(err) {
+        throw err
+    }
 }

@@ -1,0 +1,45 @@
+@use '../abstract' as *; 
+@use '../reusable' as *; 
+
+.intro__image {
+    width: calc(425px + 75 * ((100vw - 1024px) / (1440 - 1024)));
+    margin: 0 auto;
+
+    @include responsive(large) {
+        width: fluid(287.67, 725);
+    }
+
+    img{
+        max-width: rem(725);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.intro__content {
+    @extend %flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include responsive(large) {
+        align-items: center;
+    }
+
+    &-heading{
+        font-size: calc(43px + 5 * ((100vw - 1024px) / (1440 - 1024)));
+        color: $green;
+
+        @include responsive(large){
+            font-size: fluid(31, 43);
+        }
+    }
+
+    &-text {
+        font-size: calc(23px + 2 * ((100vw - 1024px) / (1440 - 1024)));;
+
+        @include responsive(large){
+            font-size: fluid(16, 23);
+        }
+    }
+}

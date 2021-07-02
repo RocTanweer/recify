@@ -13,7 +13,7 @@ class RecipeView {
         this.#parentElement.innerHTML = '';
     } 
 
-    eventHandler(handler) {
+    eventHandlerRecipe(handler) {
         const events = ['hashchange', 'load'];
         events.forEach(env => window.addEventListener(env, handler))
     }

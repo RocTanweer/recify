@@ -11,7 +11,6 @@ const timeOUt = function (time) {
 export const getJSON = async function(url) {
    try {
        // Storing the resolved value of this promise in res
-    //    const res = await fetch(url);
        const res = await Promise.race([fetch(url), timeOUt(TIME_OUT)]);
        // converting that value into json format
        const data = await res.json();
