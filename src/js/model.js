@@ -4,7 +4,7 @@ import {getJSON} from './helpers.js'
 export const state = {
     recipe:  {},
     search : {
-        query : '',
+        query : undefined,
         numOfRecipes : 0,
         recipes : []
     }

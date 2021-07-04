@@ -32,7 +32,7 @@ class RecipeView {
                 </h1>
 
                 <div class="main__imageContainer-image">
-                    <img src="${this.#data.image}" alt="dish-image">
+                    <img src="${this.#data.image}" alt="dish-image" loading="lazy">
                 </div>
 
                 <div class="main__imageContainer-bottom">

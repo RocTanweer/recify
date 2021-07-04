@@ -2,6 +2,7 @@ class SearchView {
     #parentElement = document.querySelector('.main__wrapper');
     #form = document.querySelector('.top__wrapper-form');
     #data;
+    #query;
 
     eventHandlerRecipes(handler) {
         this.#form.addEventListener('submit', function(e) {
@@ -22,8 +23,9 @@ class SearchView {
         this.#parentElement.innerHTML = '';
     }
 
-    render(data) {
+    render(data, query) {
         this.#data = data;
+        this.#query = query;
         const markup = this.#generateMarkup();
         this.clear()
         this.#parentElement.insertAdjacentHTML('afterbegin', markup);
@@ -55,11 +57,11 @@ class SearchView {
             <article class="main__article">
                 <div class="main__article-wrapper">
                     <div class="main__article-image">
-                        <img src="${rec.image}" alt="pizza-image">
+                        <img src="${rec.image}" alt="pizza-image" loading="lazy">
                     </div>
 
                     <h2 class="main__article-title">
-                        <a href="#${rec.id}" class="main__article-link">
+                        <a href="#${this.#query}/${rec.id}" class="main__article-link">
                             ${rec.title}
                         </a>
                     </h2>
