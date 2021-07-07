@@ -7,6 +7,8 @@ import SearchView from './view/searchView.js';
 
 import IntroView from './view/introView.js';
 
+import BookmarkView from './view/bookmarkView.js';
+
 const searchResults = async function(query) {
     detailedRecipeView.renderSpinner();
     await Model.loadSearchResults(query);
@@ -59,11 +61,19 @@ const controlSearchResults = async function() {
 
 const controlAddBookmark = function() {
     if(Model.state.recipe.bookmarked){
-        Model.loadRemoveBookmark(Model.state.recipe.id)
+        Model.loadRemoveBookmark(Model.state.recipe.id);
+        BookmarkView.removeBookmarkFromUI(Model.state.bookmarks);
     }else{
         Model.loadAddBookmark(Model.state.recipe)
+        BookmarkView.addBookmarkToUI(Model.state.recipe, Model.state.search.query);
     }
     detailedRecipeView.render(Model.state.recipe);
+}
+
+const controlShowBookmark = function() {
+    const ariaExpanded = BookmarkView.getAttribute();
+    ariaExpanded === 'true' ? BookmarkView.setAttribute(false) : BookmarkView.setAttribute(true);
+    BookmarkView.showBookmarks();
 }
 
 const controlBackBtn = function(e) {
@@ -75,6 +85,7 @@ const init = function() {
     detailedRecipeView.eventHandlerAddBookmark(controlAddBookmark)
     SearchView.eventHandlerRecipes(controlSearchResults);
     SearchView.eventHandlerBack(controlBackBtn);
+    BookmarkView.eventHandlerShowBookmarks(controlShowBookmark);
 }
 
 init();

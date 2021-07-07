@@ -26,6 +26,9 @@ export const loadRecipe = async function(id) {
            title: recipe.title
        }
 
+       const found = state.bookmarks.some((item) => item.id === recipe.id);
+       found ? recipe.bookmarked = true : recipe.bookmarked = false;
+
        state.recipe = recipe;
    }
    catch(err) {
@@ -60,9 +63,6 @@ export const loadAddBookmark = function(recipe) {
     if(recipe.id === state.recipe.id) state.recipe.bookmarked = true;
 
     state.bookmarks.push(state.recipe);
-
-    console.log(state.recipe)
-    console.log(state.bookmarks)
 }
 
 export const loadRemoveBookmark = function(id) {
@@ -70,7 +70,4 @@ export const loadRemoveBookmark = function(id) {
 
     const index = state.bookmarks.findIndex((recipe) => recipe.id === id);
     state.bookmarks.splice(index, 1)
-
-    console.log(state.recipe)
-    console.log(state.bookmarks)
 }

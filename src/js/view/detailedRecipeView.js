@@ -23,7 +23,6 @@ class detailedRecipeView {
             const bookmarkBtn = e.target.closest('.bookmarkBtn');
             if(!bookmarkBtn) return
             handler();
-            console.log(this.#data.bookmarked)
         })
     }
 
@@ -41,7 +40,7 @@ class detailedRecipeView {
                 </h1>
 
                 <div class="main__imageContainer-image">
-                    <img src="${this.#data.image}" alt="dish-image" loading="lazy">
+                    <img src="${this.#data.image}" alt="${this.#data.title}" loading="lazy">
                 </div>
 
                 <div class="main__imageContainer-bottom">

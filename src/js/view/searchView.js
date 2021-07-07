@@ -72,7 +72,7 @@ class SearchView {
             <article class="main__article">
                 <div class="main__article-wrapper">
                     <div class="main__article-image">
-                        <img src="${rec.image}" alt="pizza-image" loading="lazy">
+                        <img src="${rec.image}" alt="${rec.title}" loading="lazy">
                     </div>
 
                     <h2 class="main__article-title">
