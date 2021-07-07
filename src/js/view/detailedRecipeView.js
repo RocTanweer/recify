@@ -1,4 +1,4 @@
-class RecipeView {
+class detailedRecipeView {
     #parentElement = document.querySelector('.main__wrapper');
     #data;
 
@@ -89,4 +89,4 @@ class RecipeView {
     }
 }
 
-export default new RecipeView()
+export default new detailedRecipeView()

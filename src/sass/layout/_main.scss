@@ -17,6 +17,7 @@
         width: rem(350);
         height: auto;
         justify-self: center;
+        border-radius: rem(9);
         box-shadow: 0px 1px 31px -6px #477229;
 
         @include responsive(large) {

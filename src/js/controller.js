@@ -2,13 +2,13 @@ import '../sass/app.scss';
 
 import * as Model from './model.js';
 
-import RecipeView from './view/recipeView.js';
+import detailedRecipeView from './view/detailedRecipeView.js';
 import SearchView from './view/searchView.js';
 
 import IntroView from './view/introView.js';
 
 const searchResults = async function(query) {
-    RecipeView.renderSpinner();
+    detailedRecipeView.renderSpinner();
     await Model.loadSearchResults(query);
     SearchView.render(Model.state.search.recipes, Model.state.search.query);
     if (Model.state.search.recipes.length === 0) throw new Error(`Invalid Input`)
@@ -22,16 +22,19 @@ const controlRecipe = async function () {
         if(id) {
             // making Ajax call and storing data in state object
             // showing loading spinner
-            RecipeView.renderSpinner();
+            detailedRecipeView.renderSpinner();
             await Model.loadRecipe(id);
             // rendering markup using that data
-            RecipeView.render(Model.state.recipe);
+            detailedRecipeView.render(Model.state.recipe);
+            SearchView.addBackBtn()
         }
         if(query === Model.state.search.query) {
+            SearchView.addForm();
             await searchResults(query)
         }
         if(query === "") {
-            RecipeView.renderSpinner();
+            detailedRecipeView.renderSpinner();
+            SearchView.addForm();
             IntroView.render();
         }
     }
@@ -54,9 +57,14 @@ const controlSearchResults = async function() {
    }
 }
 
+const controlBackBtn = function(e) {
+    history.back();
+}
+
 const init = function() {
-    RecipeView.eventHandlerRecipe(controlRecipe);
+    detailedRecipeView.eventHandlerRecipe(controlRecipe);
     SearchView.eventHandlerRecipes(controlSearchResults);
+    SearchView.eventHandlerBack(controlBackBtn);
 }
 
 init();

@@ -1,6 +1,7 @@
 class SearchView {
     #parentElement = document.querySelector('.main__wrapper');
     #form = document.querySelector('.top__wrapper-form');
+    #backBtn = document.querySelector('.top__backBtn');
     #data;
     #query;
 
@@ -9,6 +10,10 @@ class SearchView {
             e.preventDefault();
             handler();
         })
+    }
+
+    eventHandlerBack(handler) {
+        this.#backBtn.addEventListener('click', handler);
     }
     
     getQuery() {
@@ -21,6 +26,16 @@ class SearchView {
 
     clear() {
         this.#parentElement.innerHTML = '';
+    }
+
+    addForm() {
+        this.#form.style.display = 'inherit';
+        this.#backBtn.style.display = 'none';
+    }
+
+    addBackBtn() {
+        this.#form.style.display = 'none';
+        this.#backBtn.style.display = 'inherit';
     }
 
     render(data, query) {
@@ -61,7 +76,7 @@ class SearchView {
                     </div>
 
                     <h2 class="main__article-title">
-                        <a href="#${this.#query}/${rec.id}" class="main__article-link">
+                        <a href="#/${this.#query}/${rec.id}" class="main__article-link">
                             ${rec.title}
                         </a>
                     </h2>

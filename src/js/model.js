@@ -7,7 +7,8 @@ export const state = {
         query : undefined,
         numOfRecipes : 0,
         recipes : []
-    }
+    },
+    bookmarks : [],
 }
 
 export const loadRecipe = async function(id) {
@@ -31,7 +32,7 @@ export const loadRecipe = async function(id) {
        console.error(err)
    }
 }
-// https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza
+
 export const loadSearchResults = async function(query) {
     try{
         const data = await getJSON(`${API_URL}?search=${query}`);
