@@ -18,6 +18,15 @@ class detailedRecipeView {
         events.forEach(env => window.addEventListener(env, handler))
     }
 
+    eventHandlerAddBookmark(handler) {
+        this.#parentElement.addEventListener('click', (e) => {
+            const bookmarkBtn = e.target.closest('.bookmarkBtn');
+            if(!bookmarkBtn) return
+            handler();
+            console.log(this.#data.bookmarked)
+        })
+    }
+
     renderSpinner() {
         this.clear();
         const markup = `<div id="spinner"></div>`;
@@ -59,7 +68,7 @@ class detailedRecipeView {
                     </ul>
 
                     <div class="main__imageContainer-sideDetail">
-                        <button class="bookmarkBtn"><i class="far fa-bookmark"></i></button>
+                        <button class="bookmarkBtn"><i class="fa${this.#data.bookmarked === true ? 's' : 'r'} fa-bookmark"></i></button>
                     </div>
                 </div>
             </div>

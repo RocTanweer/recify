@@ -57,12 +57,22 @@ const controlSearchResults = async function() {
    }
 }
 
+const controlAddBookmark = function() {
+    if(Model.state.recipe.bookmarked){
+        Model.loadRemoveBookmark(Model.state.recipe.id)
+    }else{
+        Model.loadAddBookmark(Model.state.recipe)
+    }
+    detailedRecipeView.render(Model.state.recipe);
+}
+
 const controlBackBtn = function(e) {
     history.back();
 }
 
 const init = function() {
     detailedRecipeView.eventHandlerRecipe(controlRecipe);
+    detailedRecipeView.eventHandlerAddBookmark(controlAddBookmark)
     SearchView.eventHandlerRecipes(controlSearchResults);
     SearchView.eventHandlerBack(controlBackBtn);
 }
