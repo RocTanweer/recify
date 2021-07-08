@@ -71,3 +71,17 @@ export const loadRemoveBookmark = function(id) {
     const index = state.bookmarks.findIndex((recipe) => recipe.id === id);
     state.bookmarks.splice(index, 1)
 }
+
+export const loadServings = function(newServings) {
+    const servings = state.recipe.servings;
+
+    state.recipe.ingredients = state.recipe.ingredients.map(ing => {
+        return {
+            quantity: (ing.quantity / servings) * newServings,
+            unit : ing.unit,
+            description : ing.description
+        }
+    })
+
+    state.recipe.servings = newServings;
+}

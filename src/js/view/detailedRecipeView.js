@@ -26,6 +26,15 @@ class detailedRecipeView {
         })
     }
 
+    eventHandlerServings(handler) {
+        this.#parentElement.addEventListener('click', (e) => {
+            const updateServingsBtn = e.target.closest('.updateServings');
+            if(!updateServingsBtn) return
+            const {servings} = updateServingsBtn.dataset;
+            if (+servings > 0) handler(+servings);
+        })
+    }
+
     renderSpinner() {
         this.clear();
         const markup = `<div id="spinner"></div>`;
@@ -56,11 +65,11 @@ class detailedRecipeView {
                         </li>
 
                         <li class="main__imageContainer-sideDetail">
-                            <button class="increaseServings">
+                            <button class="increaseServings updateServings" data-servings="${this.#data.servings + 1}">
                                 <i class="fas fa-plus"></i>
                             </button>
 
-                            <button class="decreaseServings">
+                            <button class="decreaseServings updateServings" data-servings="${this.#data.servings - 1}">
                                 <i class="fas fa-minus"></i>
                             </button>
                         </li>
