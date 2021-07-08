@@ -62,6 +62,7 @@ const controlSearchResults = async function() {
 const controlAddBookmark = function() {
     if(Model.state.recipe.bookmarked){
         Model.loadRemoveBookmark(Model.state.recipe.id);
+        console.log(Model.state.bookmarks)
         BookmarkView.removeBookmarkFromUI(Model.state.bookmarks);
     }else{
         Model.loadAddBookmark(Model.state.recipe)
@@ -76,6 +77,10 @@ const controlShowBookmark = function() {
     BookmarkView.showBookmarks();
 }
 
+const controlClosingBookmarks = function() {
+    controlShowBookmark();
+}
+
 const controlBackBtn = function(e) {
     history.back();
 }
@@ -86,6 +91,7 @@ const init = function() {
     SearchView.eventHandlerRecipes(controlSearchResults);
     SearchView.eventHandlerBack(controlBackBtn);
     BookmarkView.eventHandlerShowBookmarks(controlShowBookmark);
+    BookmarkView.eventHandlerBookmarks(controlClosingBookmarks)
 }
 
 init();

@@ -137,19 +137,44 @@
         @extend %listreset;
         position: absolute;
         width: 100%;
+        min-height: 64%;
         background-color: $white;
         display: none;
         padding: rem(5);
         border-radius: rem(9);
+        z-index: 2;
 
         &.show {
             display: block;
+        }
+
+        .bookmark-message {
+            font-size: rem(16);
+            font-weight: 600;
+
+            &.hide {
+                display: none;
+            }
+
+            @include responsive(large) {
+                font-size: fluid(13, 16);
+            }
+
+            .fa-smile-beam{
+                font-size: rem(21);
+                font-weight: 600;
+
+                @include responsive(large) {
+                    font-size: fluid(16, 21);
+                }
+            }
         }
     }
 
     .bookmarkItem {
         @extend %flex;
         justify-content: space-evenly;
+        position: relative;
         
         &:not(:last-child) {
             margin-bottom: rem(9);

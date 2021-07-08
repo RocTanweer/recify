@@ -1,7 +1,6 @@
 class BookmarkView {
     #bookmarkBtn = document.querySelector('.top__wrapper-bookmarks-btn');
     #bookmarkItems = document.querySelector('.top__wrapper-bookmarks-items');
-    #bookmarkItem;
     #curData;
     #query;
 
@@ -21,27 +20,41 @@ class BookmarkView {
         this.#bookmarkItems.classList.toggle('show');
     }
 
+    eventHandlerBookmarks(handler) {
+        this.#bookmarkItems.addEventListener('click', (e) => {
+            const bookmarkItem = e.target.closest('.bookmarkItem');
+            if(!bookmarkItem) return;
+            handler()
+        })
+    }
 
-    addBookmarkToUI(data, query){
+    #clearBookmarkContainer() {
+        const arrOfBookmarks = Array.from(this.#bookmarkItems.querySelectorAll('.bookmarkItem'));
+        const message = this.#bookmarkItems.querySelector('.bookmark-message');
+        arrOfBookmarks.length > 0 ? message.classList.add('hide') : message.classList.remove('hide')
+    }
+
+    addBookmarkToUI(data, query) {
         this.#curData = data;
         this.#query = query;
         const markup = this.#createBookmarkForUI();
         this.#bookmarkItems.insertAdjacentHTML('afterbegin', markup);
+        this.#clearBookmarkContainer();
     }
 
     removeBookmarkFromUI(bookmarks) {
-        this.#bookmarkItem = document.querySelectorAll('.bookmarkItem');
-        const found = bookmarks.some((item) => item.id === recipe.id);
-        this.#bookmarkItem.forEach((recipe) => {
-                if (!found) {
-                        this.#bookmarkItems.removeChild(recipe)
-                    }
-                })
+        const bookmarkItems = this.#bookmarkItems.querySelectorAll('.bookmarkItem');
+        bookmarkItems.forEach(bookmark => {
+            const id = bookmark.getAttribute('id');
+            const found = bookmarks.some(item => item.id === id);
+            if(!found) this.#bookmarkItems.removeChild(bookmark)
+        })
+        this.#clearBookmarkContainer();
     }
 
     #createBookmarkForUI() {
         return `
-            <li class="bookmarkItem">
+            <li class="bookmarkItem" id="${this.#curData.id}">
                 <div class="bookmarkItem-image">
                     <img src="${this.#curData.image}" alt="${this.#curData.title}">
                 </div>
