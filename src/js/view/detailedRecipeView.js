@@ -1,17 +1,15 @@
-class detailedRecipeView {
-    #parentElement = document.querySelector('.main__wrapper');
-    #data;
+import GlobalView from "./gobalView.js";   
+
+class DetailedRecipeView extends GlobalView{
+    _parentElement = document.querySelector('.main__wrapper');
+    _data;
 
     render(data) {
-        this.#data = data;
-        const markup = this.#generateMarkup();
+        this._data = data;
+        const markup = this._generateMarkup();
         this.clear();
-        this.#parentElement.insertAdjacentHTML('afterbegin', markup);
+        this._parentElement.insertAdjacentHTML('afterbegin', markup);
     }
-
-    clear() {
-        this.#parentElement.innerHTML = '';
-    } 
 
     eventHandlerRecipe(handler) {
         const events = ['hashchange', 'load'];
@@ -19,7 +17,7 @@ class detailedRecipeView {
     }
 
     eventHandlerAddBookmark(handler) {
-        this.#parentElement.addEventListener('click', (e) => {
+        this._parentElement.addEventListener('click', (e) => {
             const bookmarkBtn = e.target.closest('.bookmarkBtn');
             if(!bookmarkBtn) return
             handler();
@@ -27,7 +25,7 @@ class detailedRecipeView {
     }
 
     eventHandlerServings(handler) {
-        this.#parentElement.addEventListener('click', (e) => {
+        this._parentElement.addEventListener('click', (e) => {
             const updateServingsBtn = e.target.closest('.updateServings');
             if(!updateServingsBtn) return
             const {servings} = updateServingsBtn.dataset;
@@ -35,48 +33,42 @@ class detailedRecipeView {
         })
     }
 
-    renderSpinner() {
-        this.clear();
-        const markup = `<div id="spinner"></div>`;
-        this.#parentElement.insertAdjacentHTML('afterbegin', markup)
-    }
-
-    #generateMarkup() {
+    _generateMarkup() {
         return `
             <div class="main__imageContainer">
                 <h1 class="main__imageContainer-heading">
-                    ${this.#data.title}
+                    ${this._data.title}
                 </h1>
 
                 <div class="main__imageContainer-image">
-                    <img src="${this.#data.image}" alt="${this.#data.title}" loading="lazy">
+                    <img src="${this._data.image}" alt="${this._data.title}" loading="lazy">
                 </div>
 
                 <div class="main__imageContainer-bottom">
                     <ul class="main__imageContainer-sideDetails">
                         <li class="main__imageContainer-sideDetail">
                             <i class="fas fa-clock"></i>
-                            <time datetime="PT0H${this.#data.cookingTime}M" class="time">${this.#data.cookingTime} min</time>
+                            <time datetime="PT0H${this._data.cookingTime}M" class="time">${this._data.cookingTime} min</time>
                         </li>
 
                         <li class="main__imageContainer-sideDetail">
                             <i class="fas fa-user-friends"></i>
-                            <span class="servings">${this.#data.servings} servings</span>
+                            <span class="servings">${this._data.servings} servings</span>
                         </li>
 
                         <li class="main__imageContainer-sideDetail">
-                            <button class="increaseServings updateServings" data-servings="${this.#data.servings + 1}">
+                            <button class="increaseServings updateServings" data-servings="${this._data.servings + 1}">
                                 <i class="fas fa-plus"></i>
                             </button>
 
-                            <button class="decreaseServings updateServings" data-servings="${this.#data.servings - 1}">
+                            <button class="decreaseServings updateServings" data-servings="${this._data.servings - 1}">
                                 <i class="fas fa-minus"></i>
                             </button>
                         </li>
                     </ul>
 
                     <div class="main__imageContainer-sideDetail">
-                        <button class="bookmarkBtn"><i class="fa${this.#data.bookmarked === true ? 's' : 'r'} fa-bookmark"></i></button>
+                        <button class="bookmarkBtn"><i class="fa${this._data.bookmarked === true ? 's' : 'r'} fa-bookmark"></i></button>
                     </div>
                 </div>
             </div>
@@ -87,17 +79,17 @@ class detailedRecipeView {
                 </h2>
 
                 <ul class="main__content-ingredient">
-                    ${this.#data.ingredients.map(this.#generateIngMarkup).join('')}
+                    ${this._data.ingredients.map(this._generateIngMarkup).join('')}
                 </ul>
 
-                <a href="${this.#data.source}" class="main__content-moreInfo" target="_blank">
+                <a href="${this._data.source}" class="main__content-moreInfo" target="_blank">
                     More Info
                 </a>
             </div>
         `
     }
 
-    #generateIngMarkup(ing) {
+    _generateIngMarkup(ing) {
         return `
             <li class="item">
                 ${!ing.quantity ? '' : ing.quantity} ${ing.unit} ${ing.description}
@@ -106,4 +98,4 @@ class detailedRecipeView {
     }
 }
 
-export default new detailedRecipeView()
+export default new DetailedRecipeView()

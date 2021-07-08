@@ -2,7 +2,7 @@ import '../sass/app.scss';
 
 import * as Model from './model.js';
 
-import detailedRecipeView from './view/detailedRecipeView.js';
+import DetailedRecipeView from './view/detailedRecipeView.js';
 import SearchView from './view/searchView.js';
 
 import IntroView from './view/introView.js';
@@ -10,7 +10,7 @@ import IntroView from './view/introView.js';
 import BookmarkView from './view/bookmarkView.js';
 
 const searchResults = async function(query) {
-    detailedRecipeView.renderSpinner();
+    SearchView.renderSpinner();
     await Model.loadSearchResults(query);
     SearchView.render(Model.state.search.recipes, Model.state.search.query);
     if (Model.state.search.recipes.length === 0) throw new Error(`Invalid Input`)
@@ -24,25 +24,26 @@ const controlRecipe = async function () {
         if(id) {
             // making Ajax call and storing data in state object
             // showing loading spinner
-            detailedRecipeView.renderSpinner();
+            DetailedRecipeView.renderSpinner();
             await Model.loadRecipe(id);
             // rendering markup using that data
-            detailedRecipeView.render(Model.state.recipe);
+            DetailedRecipeView.render(Model.state.recipe);
             SearchView.addBackBtn()
+            DetailedRecipeView.update(Model.state.recipe);
         }
         if(query === Model.state.search.query) {
             SearchView.addForm();
             await searchResults(query)
         }
         if(query === "") {
-            detailedRecipeView.renderSpinner();
+            IntroView.renderSpinner();
             SearchView.addForm();
             IntroView.render();
         }
     }
     catch (err) {
         console.error(err)
-        SearchView.renderError();
+        DetailedRecipeView.renderError();
     }
 }
 
@@ -61,7 +62,7 @@ const controlSearchResults = async function() {
 
 const controlServings = function(servings) {
     Model.loadServings(servings);
-    detailedRecipeView.render(Model.state.recipe);
+    DetailedRecipeView.render(Model.state.recipe);
 }
 
 const controlAddBookmark = function() {
@@ -73,7 +74,7 @@ const controlAddBookmark = function() {
         Model.loadAddBookmark(Model.state.recipe)
         BookmarkView.addBookmarkToUI(Model.state.recipe, Model.state.search.query);
     }
-    detailedRecipeView.render(Model.state.recipe);
+    DetailedRecipeView.render(Model.state.recipe);
 }
 
 const controlShowBookmark = function() {
@@ -91,9 +92,9 @@ const controlBackBtn = function(e) {
 }
 
 const init = function() {
-    detailedRecipeView.eventHandlerRecipe(controlRecipe);
-    detailedRecipeView.eventHandlerAddBookmark(controlAddBookmark)
-    detailedRecipeView.eventHandlerServings(controlServings);
+    DetailedRecipeView.eventHandlerRecipe(controlRecipe);
+    DetailedRecipeView.eventHandlerAddBookmark(controlAddBookmark)
+    DetailedRecipeView.eventHandlerServings(controlServings);
     SearchView.eventHandlerRecipes(controlSearchResults);
     SearchView.eventHandlerBack(controlBackBtn);
     BookmarkView.eventHandlerShowBookmarks(controlShowBookmark);

@@ -1,19 +1,17 @@
+import GlobalView from './gobalView.js';
+
 import introImage from '../../images/introIllustration.svg';
 
-class IntroView {
-    #parentElement = document.querySelector('.main__wrapper');
+class IntroView extends GlobalView{
+    _parentElement = document.querySelector('.main__wrapper');
 
     render() {
-        const markup = this.#generateMarkup();
-        this.clean();
-        this.#parentElement.insertAdjacentHTML('afterbegin', markup);
+        const markup = this._generateMarkup();
+        this.clear();
+        this._parentElement.insertAdjacentHTML('afterbegin', markup);
     }
 
-    clean() {
-        this.#parentElement.innerHTML = "";
-    }
-
-    #generateMarkup() {
+    _generateMarkup() {
         return `
             <div class="intro__image">
                 <img src="${introImage}" alt="Woman-cooking-illustration">
