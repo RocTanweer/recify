@@ -78,6 +78,48 @@
     height: 100%;
     backdrop-filter: blur(2px);
     background-color: rgba(0, 0, 0, 0.295);
-    z-index: 2;
+    z-index: 3;
     display: none;
+}
+
+.toTop {
+    @extend %buttonreset;
+    transition: all 300ms ease-in-out;
+    position: fixed;
+    right: rem(20);
+    bottom: rem(20);
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    font-size: rem(25);
+    padding: 0;
+    color: $orangeBlack;
+    background-color: $lightOrange;
+    width: rem(50);
+    height: rem(50);
+    border-radius: 50%;
+    border: 2px solid $lightOrange;
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @include responsive(large) {
+        right: fluid(10, 20);
+        bottom: fluid(10, 20);
+        width: fluid(40, 50);
+        height: fluid(40, 50);
+    }
+
+
+    @media (hover : hover) {
+         &:hover {
+            background-color: $white;
+        }
+    } 
+
+    &:active {
+        background-color: $lightOrange;
+    }
 }

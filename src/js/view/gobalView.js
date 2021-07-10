@@ -44,4 +44,38 @@ export default class GlobalView {
         `
         this._parentElement.insertAdjacentHTML('afterbegin', markup)
     }
+
+    scrollTo() {
+        const rootElement = document.documentElement;
+        rootElement.scrollTo({
+            top:0,
+            behavior: "smooth"
+        })
+    }
+
+    eventHandlerToTop(handler) {
+        document.querySelector('.toTop').addEventListener('click', handler);
+    }
+
+    targetObserver() {
+        const target = document.querySelector('.top');
+        const toTopBtn = document.querySelector('.toTop');
+        const callBack = function(entries) {
+            entries.forEach(entry => {
+                if(!entry.isIntersecting) {
+                    toTopBtn.classList.add('show');
+                }
+                if (entry.isIntersecting) {
+                    toTopBtn.classList.remove('show');
+                }
+            })
+        }
+        const options = {
+            root: null,
+            threshold : 0,
+            margin: "0px"
+        }
+        const observer = new IntersectionObserver(callBack, options)
+        observer.observe(target);
+    }
 }

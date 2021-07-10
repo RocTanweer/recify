@@ -21,6 +21,9 @@ const controlRecipe = async function () {
         // Getting recipe id from the url
         const query = location.hash.slice(2);
         const id = query.split('/')[1];
+
+        DetailedRecipeView.targetObserver();
+
         if(id) {
             // making Ajax call and storing data in state object
             // showing loading spinner
@@ -85,14 +88,19 @@ const controlClosingBookmarks = function() {
     controlShowBookmark();
 }
 
-const controlBackBtn = function(e) {
+const controlBackBtn = function() {
     history.back();
+}
+
+const controlToTop = function() {
+    DetailedRecipeView.scrollTo();
 }
 
 const init = function() {
     DetailedRecipeView.eventHandlerRecipe(controlRecipe);
     DetailedRecipeView.eventHandlerAddBookmark(controlAddBookmark)
     DetailedRecipeView.eventHandlerServings(controlServings);
+    DetailedRecipeView.eventHandlerToTop(controlToTop);
     SearchView.eventHandlerRecipes(controlSearchResults);
     SearchView.eventHandlerBack(controlBackBtn);
     BookmarkView.eventHandlerShowBookmarks(controlShowBookmark);
