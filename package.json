@@ -18,6 +18,8 @@
     "sass": "^1.35.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3"
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "fractional.js": "^1.0.0",
+    "fracty": "^1.0.9"
   }
 }

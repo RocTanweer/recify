@@ -1,4 +1,5 @@
 import GlobalView from "./gobalView.js";   
+const fracty = require('fracty');
 
 class DetailedRecipeView extends GlobalView{
     _parentElement = document.querySelector('.main__wrapper');
@@ -92,7 +93,7 @@ class DetailedRecipeView extends GlobalView{
     _generateIngMarkup(ing) {
         return `
             <li class="item">
-                ${!ing.quantity ? '' : ing.quantity} ${ing.unit} ${ing.description}
+                ${!ing.quantity ? '' : fracty(ing.quantity)} ${ing.unit} ${ing.description}
             </li>
         `
     }

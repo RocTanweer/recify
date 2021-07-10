@@ -163,6 +163,7 @@
             .fa-smile-beam{
                 font-size: rem(21);
                 font-weight: 600;
+                color: $green;
 
                 @include responsive(large) {
                     font-size: fluid(16, 21);

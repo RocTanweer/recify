@@ -6,8 +6,19 @@ export default class GlobalView {
         const currentElements = Array.from(this._parentElement.querySelectorAll('*'));
         const newDOM = document.createRange().createContextualFragment(markup);
         const newElements = Array.from(newDOM.querySelectorAll('*'));
-        console.log(currentElements)
-        console.log(newElements)
+
+        newElements.forEach((newEl, index) => {
+            const curEl = currentElements[index];
+
+            if (!curEl.isEqualNode(newEl) && newEl.firstChild?.nodeValue.trim() !== '') {
+                curEl.textContent = newEl.textContent;
+            }
+
+            if (!newEl.isEqualNode(curEl))
+                Array.from(newEl.attributes).forEach(attr =>
+                    curEl.setAttribute(attr.name, attr.value)
+                );
+        })
     }
 
     clear() {

@@ -29,7 +29,6 @@ const controlRecipe = async function () {
             // rendering markup using that data
             DetailedRecipeView.render(Model.state.recipe);
             SearchView.addBackBtn()
-            DetailedRecipeView.update(Model.state.recipe);
         }
         if(query === Model.state.search.query) {
             SearchView.addForm();
@@ -68,7 +67,6 @@ const controlServings = function(servings) {
 const controlAddBookmark = function() {
     if(Model.state.recipe.bookmarked){
         Model.loadRemoveBookmark(Model.state.recipe.id);
-        console.log(Model.state.bookmarks)
         BookmarkView.removeBookmarkFromUI(Model.state.bookmarks);
     }else{
         Model.loadAddBookmark(Model.state.recipe)
