@@ -84,6 +84,12 @@ const controlShowBookmark = function() {
     BookmarkView.showBookmarks();
 }
 
+const controlFetchBookmarksLS = function() {
+    Model.state.bookmarks.forEach((bookmark) => {
+        BookmarkView.addBookmarkToUI(bookmark, 'bookmarks');
+    })
+}
+
 const controlClosingBookmarks = function() {
     controlShowBookmark();
 }
@@ -104,7 +110,8 @@ const init = function() {
     SearchView.eventHandlerRecipes(controlSearchResults);
     SearchView.eventHandlerBack(controlBackBtn);
     BookmarkView.eventHandlerShowBookmarks(controlShowBookmark);
-    BookmarkView.eventHandlerBookmarks(controlClosingBookmarks)
+    BookmarkView.eventHandlerBookmarks(controlClosingBookmarks);
+    controlFetchBookmarksLS();
 }
 
 init();
