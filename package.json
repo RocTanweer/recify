@@ -4,7 +4,7 @@
   "description": "This is a project to practice forkify",
   "main": "index.js",
   "scripts": {
-    "dev": "rm -rf ./development && rm -rf ./.cache && parcel public/index.html --out-dir development -p 3000",
+    "dev": "rm -rf ./development && rm -rf ./.cache && parcel public/index.html --out-dir development -p 3001",
     "build": "parcel build public/index.html --out-dir dist --public-url ./"
   },
   "keywords": [],
@@ -20,6 +20,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "fractional.js": "^1.0.0",
-    "fracty": "^1.0.9"
+    "fracty": "^1.0.9",
+    "images": "^3.2.3"
   }
 }

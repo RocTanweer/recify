@@ -29,6 +29,10 @@
             img {
                 max-width: rem(160);
                 width: 100%;
+
+            }
+            .hide {
+                display: none;
             }
         }
     }
@@ -63,6 +67,7 @@
     
     .far {
         font-size: rem(20);
+        pointer-events: none;
 
         @include responsive(large) {
             font-size: fluid(14, 20);

@@ -9,6 +9,8 @@ import IntroView from './view/introView.js';
 
 import BookmarkView from './view/bookmarkView.js';
 
+import ThemeView from './view/themeView.js';
+
 const searchResults = async function(query) {
     SearchView.renderSpinner();
     await Model.loadSearchResults(query);
@@ -57,7 +59,6 @@ const controlSearchResults = async function() {
        history.pushState({query : Model.state.search.query}, "", `#/${Model.state.search.query}`)
    }
    catch(err) {
-       console.error(err)
        SearchView.renderError();
    }
 }
@@ -102,6 +103,12 @@ const controlToTop = function() {
     DetailedRecipeView.scrollTo();
 }
 
+const controlTheme = function(e) {
+    ThemeView.toggleTheme();
+    ThemeView.toggleThemeIcon();
+    ThemeView.toggleThemeLogo();
+}
+
 const init = function() {
     DetailedRecipeView.eventHandlerRecipe(controlRecipe);
     DetailedRecipeView.eventHandlerAddBookmark(controlAddBookmark)
@@ -111,6 +118,7 @@ const init = function() {
     SearchView.eventHandlerBack(controlBackBtn);
     BookmarkView.eventHandlerShowBookmarks(controlShowBookmark);
     BookmarkView.eventHandlerBookmarks(controlClosingBookmarks);
+    ThemeView.eventHandlerTheme(controlTheme);
     controlFetchBookmarksLS();
 }
 

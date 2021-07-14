@@ -1,0 +1,15 @@
+@use 'colors' as *;
+
+.dark {
+    body,h1,h2,p, .addRecipe__backBtn, .addRecipe__backBtn:active, .addRecipe__form input {
+        color: $lightGray;
+    }
+
+    .intro__content-heading{
+        color: lighten($green, 20%);
+    }
+
+    .header__wrapper-cta, .header__wrapper-cta:active, .toTop {
+        color: $lightGray;
+    }
+}
