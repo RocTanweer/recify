@@ -10,6 +10,7 @@ import IntroView from './view/introView.js';
 import BookmarkView from './view/bookmarkView.js';
 
 import ThemeView from './view/themeView.js';
+import themeView from './view/themeView.js';
 
 const searchResults = async function(query) {
     SearchView.renderSpinner();
@@ -24,7 +25,7 @@ const controlRecipe = async function () {
         const query = location.hash.slice(2);
         const id = query.split('/')[1];
 
-        DetailedRecipeView.targetObserver();
+        
 
         if(id) {
             // making Ajax call and storing data in state object
@@ -104,9 +105,7 @@ const controlToTop = function() {
 }
 
 const controlTheme = function(e) {
-    ThemeView.toggleTheme();
-    ThemeView.toggleThemeIcon();
-    ThemeView.toggleThemeLogo();
+    themeView.setThemeLS();
 }
 
 const init = function() {
@@ -120,6 +119,8 @@ const init = function() {
     BookmarkView.eventHandlerBookmarks(controlClosingBookmarks);
     ThemeView.eventHandlerTheme(controlTheme);
     controlFetchBookmarksLS();
+    DetailedRecipeView.targetObserver();
+    ThemeView.getThemeLS();
 }
 
 init();

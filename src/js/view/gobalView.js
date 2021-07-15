@@ -63,10 +63,10 @@ export default class GlobalView {
         const callBack = function(entries) {
             entries.forEach(entry => {
                 if(!entry.isIntersecting) {
-                    toTopBtn.classList.add('show');
+                    toTopBtn.classList.add('visible');
                 }
                 if (entry.isIntersecting) {
-                    toTopBtn.classList.remove('show');
+                    toTopBtn.classList.remove('visible');
                 }
             })
         }

@@ -10,24 +10,15 @@ class ThemeView extends GlobalView {
         this._themeToggleBtn.addEventListener('click',handler);
     }
 
-    toggleTheme() {
-        this._body.classList.toggle('dark');
+    getThemeLS() {
+        const theme = localStorage.getItem('recify.theme') || '';
+        this._body.setAttribute('class', theme);
+        
     }
 
-    toggleThemeIcon() {
-        if(this._themeToggleIcon.classList.contains('fa-moon')) {
-            this._themeToggleIcon.classList.remove('fa-moon')
-            this._themeToggleIcon.classList.add('fa-sun')
-        }else{
-            this._themeToggleIcon.classList.add('fa-moon')
-            this._themeToggleIcon.classList.remove('fa-sun')
-        }
-    }
-
-    toggleThemeLogo() {
-        this._mainLogo.forEach(logo => {
-            logo.classList.toggle('hide');
-        })
+    setThemeLS() {
+        this._body.classList.contains('dark') ? this._body.className = '' : this._body.className = 'dark';
+        localStorage.setItem('recify.theme', this._body.className);
     }
 }
 

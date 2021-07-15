@@ -7,6 +7,14 @@
     background-color: $white;
     margin-bottom: rem(27);
 
+    .hide {
+            display: none;
+        }
+
+    .show {
+            display: inline-block
+        }
+
     &__wrapper {
         @extend %flex;
         justify-content: space-between;
@@ -31,9 +39,7 @@
                 width: 100%;
 
             }
-            .hide {
-                display: none;
-            }
+            
         }
     }
 }
@@ -73,6 +79,8 @@
             font-size: fluid(14, 20);
         }
     }
+
+
 }
 
 .overlay {
@@ -105,7 +113,7 @@
     border-radius: 50%;
     border: 2px solid $lightOrange;
 
-    &.show {
+    &.visible {
         opacity: 1;
         visibility: visible;
     }

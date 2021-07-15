@@ -1,15 +1,102 @@
 @use 'colors' as *;
 
 .dark {
-    body,h1,h2,p, .addRecipe__backBtn, .addRecipe__backBtn:active, .addRecipe__form input {
+    background-color: $darkBlue;
+    color: $lightGray;
+
+    .addRecipe {
+        background-color: $darkBlue;
+    }
+
+    .addRecipe__submitBtn {
+        color: $lightGray;
+
+            @media (hover: hover) {
+            &:hover{
+                background-color: $lightBlue;
+            }
+        }
+    }
+
+    .header .show {
+        display: none;
+    }
+
+
+    .header .hide {
+        display: inline-block;
+    }
+    
+
+    .main__article {
+        box-shadow: none;
+    }
+
+    .toTop {
+        @media (hover : hover) {
+            &:hover {
+                background-color: $lightBlue;
+            }
+        } 
+    }
+
+    .main__imageContainer-image img,
+    .main__article-image img{
+        filter: brightness(0.9) contrast(1.2);
+    }
+
+    .main__imageContainer-image {
+        box-shadow: none;
+    }
+
+    .main__imageContainer-sideDetail .bookmarkBtn {
         color: $lightGray;
     }
 
-    .intro__content-heading{
-        color: lighten($green, 20%);
+    .main__content-moreInfo {
+        @media (hover: hover) {
+            &:hover{
+                background-color: $lightBlue;
+            }
+        }
     }
 
-    .header__wrapper-cta, .header__wrapper-cta:active, .toTop {
+    .header,
+    .main__article-wrapper,
+    .top__wrapper-form,
+    .top__wrapper-form .input,
+    .top__wrapper-bookmarks-btn,
+    .top__wrapper-bookmarks-items,
+    .top__backBtn,
+    .addRecipe__form input {
+        background-color: $lightBlue;
+    }
+
+    h1,
+    h2,
+    p,
+    .addRecipe__backBtn,
+    .addRecipe__backBtn:active,
+    .addRecipe__form input,
+    .header__wrapper-cta-addRecipe,
+    .header__wrapper-cta-addRecipe:active,
+    .header__wrapper-cta-theme,
+    .header__wrapper-cta-theme:active,
+    .main__content-moreInfo,
+    .main__article-link,
+    .top__backBtn,
+    .top__backBtn:active,
+    .top__wrapper-form .submit,
+    .top__wrapper-form .input,
+    .top__wrapper-bookmarks-btn,
+    .top__wrapper-bookmarks-btn:active,
+    .top__wrapper-bookmarks .bookmarkItem-link,
+    .toTop {
         color: $lightGray;
     }
+
+  .intro__content-heading {
+    color: lighten($green, 20%);
+  }
+
 }

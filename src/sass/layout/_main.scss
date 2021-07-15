@@ -10,6 +10,7 @@
         max-width: rem(1180);
         width: 89.9vw;
         margin: 0 auto;
+        padding-bottom: rem(20);
     }
 
     &__article {
@@ -188,8 +189,10 @@
             font-size: fluid(14, 16);
         }
 
-        &:hover{
-            background-color: $white;
+        @media (hover: hover) {
+            &:hover{
+                background-color: $white;
+            }
         }
 
         &:active{

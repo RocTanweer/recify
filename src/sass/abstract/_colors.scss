@@ -1,20 +1,17 @@
 // primary 
-$lightOrange: rgba(242,113,38, 1);
+$lightOrange: hsl(22, 89%, 55%);
 
 // secondary
-$green: rgba(71,114,41, 1);
+$green: hsl(95, 47%, 30%);
 
 // neutral 
-$whiteOrange: rgba(242,217,215, 1);
-$lightGray : rgb(242, 242, 242);
-$white: rgb(255, 255, 255);
-$orangeBlack: #130f0e;
+$whiteOrange: hsl(4, 51%, 90%);
+$lightGray : hsl(0, 0%, 95%);
+$white: hsl(0, 0%, 100%);
+$orangeBlack: hsl(12, 15%, 6%);
 
 
 // Dark Theme
-// $darkBlue : hsl(240, 27%, 6%);
-$darkBlue : #16202a;
-
-// $lightBlue : hsl(225, 30%, 8%);
-$lightBlue : #192734;
+$darkBlue : hsl(210, 31%, 13%);
+$lightBlue : hsl(209, 35%, 15%);
 
