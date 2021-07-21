@@ -2,7 +2,7 @@
 A Web Application to help you find any recipe among **1,000,000** recipes 
 </br>
 
-![Design preview for the Recify Web Appplication](./src/images/preview.JPG)
+![Design preview for the Recify Web Appplication](./src/images/preview.jpg)
 
 ## Features
 - Get all the recipes corresponding to your search query
