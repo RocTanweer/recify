@@ -35,7 +35,6 @@
 
     &__backBtn {
         @extend %buttonreset;
-        @include trans(color);
         font-size: rem(16);
         background-color: $white;
         color: $orangeBlack;
@@ -99,7 +98,6 @@
 
     &-btn {
         @extend %buttonreset;
-        @include trans(color);
         font-size: rem(16);
         background-color: $white;
         color: $orangeBlack;
@@ -197,7 +195,6 @@
 
         &-link{
             @extend %linkreset;
-            @include trans(color);
             display: inline-block;
             width: rem(139);
             overflow: hidden;

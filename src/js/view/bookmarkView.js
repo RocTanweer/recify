@@ -46,7 +46,6 @@ class BookmarkView extends GlobalView{
 
     removeBookmarkFromUI(bookmarks) {
         const bookmarkItems = this._bookmarkItems.querySelectorAll('.bookmarkItem');
-        console.log(bookmarks)
         bookmarkItems.forEach(bookmark => {
             const id = bookmark.getAttribute('id');
             const found = bookmarks.some(item => item.id === id);

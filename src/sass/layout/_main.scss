@@ -239,7 +239,6 @@
 
     &-link {
         @extend %linkreset;
-        @include trans(color);
         color: $orangeBlack;
 
         &:focus:not(:focus-visible){
